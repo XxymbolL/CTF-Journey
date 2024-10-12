@@ -1,9 +1,0 @@
-#!/bin/bash
-# Combine all dummy_file.txt into one file
-combined_file="combined_dummy_files.txt"
-find . -name "dummy_file.txt" -exec cat {} + > "$combined_file"
-
-# Analyze the combined file
-echo "Searching for flags in combined file..."
-strings "$combined_file" | grep "CTF{"
-
