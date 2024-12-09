@@ -1,0 +1,2 @@
+flag.zip/flag/flag.txt:$zip2$*0*3*0*d0bae3afd01133c753e77d9105632924*c98e*1c*1292bc27499110df369fdfc62ede2525ea142179b4766b4593baa7e3*d1198362fa9ab6199c14*$/zip2$:flag/flag.txt:flag.zip:flag.zip
+flag.zip/flag/flag.txt:$pkzip2$1*1*2*0*38*1a*a6d45521*23*36*63*38*a6d4*312b*d0bae3afd01133c753e77d9105632924c98e1292bc27499110df369fdfc62ede2525ea142179b4766b4593baa7e3d1198362fa9ab6199c14*$/pkzip2$:flag/flag.txt:flag.zip::flag.zip

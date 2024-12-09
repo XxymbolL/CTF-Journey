@@ -1,0 +1,27 @@
+services:
+  web:
+    build: ./src/web
+    container_name: thematrix-web
+  api:
+    build: ./src/api
+    container_name: thematrix-api
+    environment:
+      - FLAG=NETSOS{placeholder}
+      - NEO4J_TARGET_URL=bolt://thematrix-db:7687
+      - NEO4J_USERNAME=neo4j
+      - NEO4J_PASSWORD=placeholderpass
+  proxy:
+    image: caddy:2.4.6
+    container_name: thematrix-proxy
+    ports:
+      - 9002:80
+    volumes:
+      - ./src/Caddyfile:/etc/caddy/Caddyfile
+    depends_on:
+      - web
+      - api
+  db:
+    image: neo4j:4.2.0
+    environment:
+      - NEO4J_AUTH=neo4j/placeholderpass
+    container_name: thematrix-db

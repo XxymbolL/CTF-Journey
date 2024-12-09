@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIAK-GG</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body class="min-h-screen bg-gray-100 p-[50px]">
+    <div class="bg-amber-100 w-full h-full rounded-xl flex flex-col drop-shadow-lg">
+        <div
+            class="flex justify-between items-center bg-gradient-to-b from-blue-500 to-blue-700 px-8 py-4 rounded-t-xl">
+            <h1 class="text-3xl font-bold text-white">SIAK-GG</h1>
+            <a href="/logout"
+                class="text-white font-medium bg-red-500 hover:bg-red-600 px-4 py-2 rounded-2xl">Logout</a>
+        </div>
+        <div class="flex min-h-full">
+            <div class="flex flex-col gap-4 bg-stone-700 w-1/6 px-6 py-4 min-h-full rounded-bl-xl">
+                <a class="text-2xl font-medium text-white hover:text-gray-200" href="/">Home</a>
+                <a class="text-2xl font-medium text-white hover:text-gray-200" href="/irs">View IRS</a>
+                <a class="text-2xl font-medium text-white hover:text-gray-200" href="/irs/edit">Edit IRS</a>
+            </div>
+            <div class="flex flex-col my-8 mx-10 w-full gap-4">
+                <h1 class="text-4xl mb-4 font-medium">Welcome, {{username}}</h1>
+                <div class="flex flex-col gap-4 bg-gray-300 px-8 py-6 rounded-xl">
+                    <h1 class="font-bold text-xl">Lorem Ipsum</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius voluptates mollitia delectus enim
+                        veritatis sequi non, obcaecati aut eos suscipit maiores consequuntur vitae laudantium distinctio
+                        id eaque, quasi cupiditate doloremque?</p>
+                    <p class="self-end text-sm text-gray-500 italic">30 Feb 2024</p>
+                </div>
+                <div class="flex flex-col gap-4 bg-gray-300 px-8 py-6 rounded-xl">
+                    <h1 class="font-bold text-xl">Lorem Ipsum</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius voluptates mollitia delectus enim
+                        veritatis sequi non, obcaecati aut eos suscipit maiores consequuntur vitae laudantium distinctio
+                        id eaque, quasi cupiditate doloremque?</p>
+                    <p class="self-end text-sm text-gray-500 italic">30 Feb 2024</p>
+                </div>
+                <div class="flex flex-col gap-4 bg-gray-300 px-8 py-6 rounded-xl">
+                    <h1 class="font-bold text-xl">Lorem Ipsum</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius voluptates mollitia delectus enim
+                        veritatis sequi non, obcaecati aut eos suscipit maiores consequuntur vitae laudantium distinctio
+                        id eaque, quasi cupiditate doloremque?</p>
+                    <p class="self-end text-sm text-gray-500 italic">30 Feb 2024</p>
+                </div>
+                <div class="flex flex-col gap-4 bg-gray-300 px-8 py-6 rounded-xl">
+                    <h1 class="font-bold text-xl">Lorem Ipsum</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius voluptates mollitia delectus enim
+                        veritatis sequi non, obcaecati aut eos suscipit maiores consequuntur vitae laudantium distinctio
+                        id eaque, quasi cupiditate doloremque?</p>
+                    <p class="self-end text-sm text-gray-500 italic">30 Feb 2024</p>
+                </div>
+                <div class="flex flex-col gap-4 bg-gray-300 px-8 py-6 rounded-xl">
+                    <h1 class="font-bold text-xl">Lorem Ipsum</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius voluptates mollitia delectus enim
+                        veritatis sequi non, obcaecati aut eos suscipit maiores consequuntur vitae laudantium distinctio
+                        id eaque, quasi cupiditate doloremque?</p>
+                    <p class="self-end text-sm text-gray-500 italic">30 Feb 2024</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

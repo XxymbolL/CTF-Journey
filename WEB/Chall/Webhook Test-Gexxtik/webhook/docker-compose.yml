@@ -1,0 +1,5 @@
+services:
+  app:
+    build: src
+    ports:
+    - 8345:8080

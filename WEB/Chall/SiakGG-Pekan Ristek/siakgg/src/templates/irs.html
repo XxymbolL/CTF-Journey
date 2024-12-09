@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIAK-GG</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body class="min-h-screen bg-gray-100 p-[50px]">
+    <div class="bg-amber-100 w-full h-full rounded-xl flex flex-col drop-shadow-lg">
+        <div
+            class="flex justify-between items-center bg-gradient-to-b from-blue-500 to-blue-700 px-8 py-4 rounded-t-xl">
+            <h1 class="text-3xl font-bold text-white">SIAK-GG</h1>
+            <a href="/logout"
+                class="text-white font-medium bg-red-500 hover:bg-red-600 px-4 py-2 rounded-2xl">Logout</a>
+        </div>
+        <div class="flex min-h-full">
+            <div class="flex flex-col gap-4 bg-stone-700 w-1/6 px-6 py-4 min-h-full rounded-bl-xl">
+                <a class="text-2xl font-medium text-white hover:text-gray-200" href="/">Home</a>
+                <a class="text-2xl font-medium text-white hover:text-gray-200" href="/irs">View IRS</a>
+                <a class="text-2xl font-medium text-white hover:text-gray-200" href="/irs/edit">Edit IRS</a>
+            </div>
+            <div class="flex flex-col my-8 mx-10 w-full gap-4">
+                <h1 class="text-4xl mb-4 font-medium">View IRS</h1>
+                <table>
+                    <thead>
+                        <tr class="bg-gray-300 text-gray-700 font-medium">
+                            <th class="px-4 py-2">Name</th>
+                            <th class="px-4 py-2">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for course in courses %}
+                        <tr class="bg-white text-gray-700 font-medium">
+                            <td class="px-4 py-2">{{course[1]}}</td>
+                            <td class="px-4 py-2">{{course[2]}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

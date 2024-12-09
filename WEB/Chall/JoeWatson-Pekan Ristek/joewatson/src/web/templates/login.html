@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+
+<body>
+    <div class="flex flex-col items-center justify-center h-screen bg-gray-500">
+        <div class="w-full max-w-md">
+            <div class="flex flex-col justify-center items-center">
+                <div class="w-full px-4 py-6 bg-gray-200 rounded-xl shadow-md">
+                    <div class="w-full flex flex-col items-center">
+                        <div class="w-full flex flex-col items-center mb-4">
+                            <h1 class="text-2xl font-bold text-gray-800">Login</h1>
+                        </div>
+                        <div class="w-full flex flex-col items-center">
+                            <input type="text" name="username" id="username" placeholder="Username"
+                                class="w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md focus:outline-none focus:border-blue-500">
+                        </div>
+                        <div class="w-full flex flex-col items-center">
+                            <input type="password" name="password" id="password" placeholder="Password"
+                                class="w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md focus:outline-none focus:border-blue-500">
+                        </div>
+                        <div class="w-full flex flex-col items-center mt-4">
+                            <p class="text-sm text-red-500" id="error"></p>
+                            <button type="submit"
+                                class="w-full px-4 py-2 mt-2 text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-700">Login</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    const submit = document.querySelector('button[type="submit"]')
+    submit.addEventListener('click', async (e) => {
+        const username = document.querySelector('#username').value
+        const password = document.querySelector('#password').value
+        const response = await fetch('/api/v1/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                username,
+                password
+            })
+        })
+
+        if (response.status === 200) {
+            window.location.href = '/'
+        } else {
+            const error = document.querySelector('#error')
+            resJson = await response.json()
+            error.innerText = resJson.message
+        }
+    })
+</script>
+
+</html>

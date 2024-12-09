@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIAK-GG</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body class="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+    <div class="bg-amber-100 w-1/4 rounded-xl flex flex-col justify-center gap-4 pb-6 drop-shadow-lg">
+        <div class="block h-8 w-full bg-yellow-500 rounded-t-xl z-10"></div>
+        <div class="flex flex-col gap-4 w-full items-center px-8">
+            <h1 class="text-3xl font-bold">SIAK-GG</h1>
+            <form action="/register" method="post" class="flex flex-col gap-4 w-full">
+                <input type="text" name="username" placeholder="Username" class="px-3 py-2 rounded-lg">
+                <input type="password" name="password" placeholder="Password" class="px-3 py-2 rounded-lg">
+                <p class="text-red-500">{{ error }}</p>
+                <button type="submit"
+                    class="bg-yellow-300 px-3 py-2 rounded-lg font-medium hover:bg-yellow-400">Register</button>
+                <a href="/login" class="text-sm text-gray-500 hover:text-blue-700 self-center">Already have an
+                    account? Sign In</a>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

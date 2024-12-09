@@ -1,0 +1,19 @@
+services:
+  web:
+    build: ./src/
+    container_name: siakgg-web
+    ports:
+      - 8080:8080
+    restart: always
+    environment:
+      - SECRET_KEY=secret
+      - DATABASE_URL=host=db port=5432 dbname=postgres user=postgres password=postgres
+      - FLAG=NETSOS{placeholder}
+  db:
+    image: postgres:latest
+    container_name: siakgg-db
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres

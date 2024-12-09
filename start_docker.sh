@@ -1,12 +1,12 @@
 #!/bin/bash
 
-# Ensure the script is executed from within the CTF-Journey directory
+# Ensure the script is executed from its own directory
 SCRIPT_DIR=$(dirname "$(realpath "$0")")
 CTF_DOCKER_DIR="$SCRIPT_DIR/CTF-Docker"
 
 # Check if the CTF-Docker directory exists
 if [[ ! -d "$CTF_DOCKER_DIR" ]]; then
-  echo "CTF-Docker directory not found in $SCRIPT_DIR. Please create it first."
+  echo "CTF-Docker directory not found in $SCRIPT_DIR. Please ensure the correct structure."
   exit 1
 fi
 
@@ -17,7 +17,7 @@ CONTAINER_NAME="ctf-container"
 # Build the Docker image if it doesn't exist
 if [[ "$(docker images -q $IMAGE_NAME 2> /dev/null)" == "" ]]; then
   echo "Docker image $IMAGE_NAME not found. Building it..."
-  docker build -t $IMAGE_NAME "$CTF_DOCKER_DIR"
+  docker build --platform linux/amd64 -t $IMAGE_NAME "$CTF_DOCKER_DIR"
 fi
 
 # Check if the container is already running
@@ -25,11 +25,10 @@ if [[ "$(docker ps -q -f name=$CONTAINER_NAME)" ]]; then
   echo "Container $CONTAINER_NAME is already running. Attaching..."
   docker exec -it $CONTAINER_NAME /bin/bash
 else
-  # Run the container with a direct mount
+  # Run the container with explicit platform set to x86_64 (amd64)
   echo "Starting new container $CONTAINER_NAME..."
-  docker run -it --name $CONTAINER_NAME \
+  docker run -it --platform linux/amd64 --name $CONTAINER_NAME \
     -v "$SCRIPT_DIR:/ctf/CTF-Journey" \
-    -v "$HOME/.zshrc:/root/.zshrc" \
     $IMAGE_NAME
 fi
 

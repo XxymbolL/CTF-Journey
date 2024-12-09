@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.14/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>maimai PRiSM Survey</title>
+  </head>
+  <body class="flex flex-col gap-4 py-8 container mx-auto">
+    <h1 class="text-xl font-bold">maimai PRiSM Song Survey</h1>
+    <p>
+      maimai PRiSM is here! (Not in international though), can you tell me
+      what's your favorite song from maimai?
+    </p>
+    <p>
+      You are logged in as: {{USERNAME}},
+      <a class="link text-blue-500" href="/sign-in">login as other user</a>
+    </p>
+    <hr />
+
+    <p>Select song:</p>
+    <div class="flex flex-row gap-4">
+      <select class="select select-bordered" id="song">
+        <option disabled selected>Select</option>
+        <option value="1">
+          Pizuya's Cell feat.中村さん - 184億回のマルチトニック
+        </option>
+        <option value="2">大国奏音 feat.timao - ツムギボシ</option>
+        <option value="3">owl * tree - QuiQ</option>
+        <option value="4">ああ…翡翠茶漬け… - Tricolor⁂circuS</option>
+      </select>
+      <button class="btn btn-primary" id="submit">Submit</button>
+    </div>
+
+    <div id="vid"></div>
+  </body>
+
+  <script>
+    const links = ["TiJf4SsU0F0", "l5xctyPVrg4", "QyHjp1qNK3o", "`JBhexo46Bw0"];
+
+    /** @type {HTMLSelectElement} */
+    const songSelect = document.getElementById("song");
+    songSelect.addEventListener("change", () => {
+      document.getElementById(
+        "vid"
+      ).innerHTML = `<iframe width="560" height="315" src="https://www.youtube.com/embed/${
+        links[Number(songSelect.value) - 1]
+      }" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
+    });
+
+    document.getElementById("submit").addEventListener("click", async (e) => {
+      e.preventDefault();
+      const r = await fetch("/", {
+        method: "POST",
+        body: JSON.stringify({
+          result: Number(songSelect.value),
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      alert(await r.text());
+    });
+  </script>
+</html>

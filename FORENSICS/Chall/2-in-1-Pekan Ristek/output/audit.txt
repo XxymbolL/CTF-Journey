@@ -1,0 +1,23 @@
+Foremost version 1.5.7 by Jesse Kornblum, Kris Kendall, and Nick Mikus
+Audit File
+
+Foremost started at Wed Nov 20 23:02:23 2024
+Invocation: foremost budgetnvgchall.jpg 
+Output directory: /Users/xymbol/Documents/Programmer College/CTF-Journey/FORENSICS/Chall/2-in-1-Pekan Ristek/output
+Configuration file: /opt/homebrew/etc/foremost.conf
+------------------------------------------------------------------
+File: budgetnvgchall.jpg
+Start: Wed Nov 20 23:02:23 2024
+Length: Unknown
+ 
+Num	 Name (bs=512)	       Size	 File Offset	 Comment 
+
+0:	00000000.jpg 	     131 KB 	          0 	 
+Finish: Wed Nov 20 23:02:23 2024
+
+1 FILES EXTRACTED
+	
+jpg:= 1
+------------------------------------------------------------------
+
+Foremost finished at Wed Nov 20 23:02:23 2024
